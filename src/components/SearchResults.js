@@ -19,12 +19,11 @@ function SearchResults(){
         }
     ]);
 
+
     return (
         <>
             <h2>Results</h2>
-            <div className="tracklist">
-                <Tracklist results={results}/>
-            </div>
+            <Tracklist songs={results} btn={"+"}/>
         </>
     );
 };

@@ -6,10 +6,22 @@
     width: 80%;
     height: 5rem;
     background-color: rgba(1, 1, 1, 0);
-    margin-bottom: 3rem;
+    margin-bottom: 0.3rem;
+  
+
+  }
+
+  .playlist input::placeholder{
+    color: rgba(255, 255, 255, .8);
+  }
+
+
+  .playlist h3{
+    color: white;
   }
   
   #spotify-btn{
+    margin-top: .5rem;
     cursor: pointer;
     width: 10rem;
     border-radius: 54px;

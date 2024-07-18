@@ -1,6 +1,7 @@
 .tracklist ul{
     padding: 0 0.7rem;
   }
+
   
   .tracklist li{
     border-bottom: 2px solid white;
@@ -28,4 +29,8 @@
   .add-btn:hover{
     color: darkslategray;
     cursor: pointer;
+  }
+
+  .tracklist{
+    width: 100%;
   }
