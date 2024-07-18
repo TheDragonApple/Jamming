@@ -2,11 +2,14 @@ import React from "react";
 import Track from "./Track";
 import styles from "./Tracklist.css";
 
-function Tracklist(){
+function Tracklist(props){
     return (
         <ul>
-          <Track />
-          <Track />
+          {props.results.map(track => {
+            return (
+              <Track id={track.id} artist={track.artist} songName={track.name} album={track.album} />
+            )
+          })}
         </ul>
     );
 }

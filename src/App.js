@@ -5,6 +5,7 @@ import SearchBar from './components/SearchBar';
 import Playlist from './components/Playlist';
 
 function App() {
+
   return (
     <>
       <h1 className="header">Ja<span className="highlight">mm</span>ing</h1>
