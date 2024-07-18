@@ -1,0 +1,160 @@
+html{
+  font-family: Poppins;
+}
+
+.header{
+  text-align: center;
+  background-color: #010c3f;
+  padding: .77rem 0;
+  font-size: 1.88rem;
+  color: white;
+  width: 100%;
+  float: top;
+  margin: 0;
+}
+
+.highlight{
+  color: #6c41ec;
+}
+
+.app{
+  background-color: #6c41ec;
+  padding: 0 17%;
+}
+
+.searchbar{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-items: center;
+  padding-top: 6.94rem;
+  margin-bottom: 6.33rem;
+}
+
+.searchbar input{
+  width: 287px;
+  padding: .88rem 0;
+  border: 1px solid #fff;
+  border-radius: 3px;
+  margin-bottom: 2.22rem;
+  color: #010c3f;
+  text-align: center;
+  font-size: 1rem;
+}
+
+#srch-btn{
+  cursor: pointer;
+  width: 8.11rem;
+  padding: .77rem;
+  margin-bottom: 6.33rem;
+  border-radius: 54px;
+  background-color: #010c3f;
+  text-align: center;
+  font-size: .833rem;
+  transition: background-color .25s;
+  border: 0;
+  color: white;
+  font-weight: bold;
+}
+
+#srch-btn:hover{
+  background-color: #0b2080;
+}
+
+.searchResults{
+  color: white;
+}
+
+.flexContainer{
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.searchResults{
+  border: 2px solid black;
+  height: 800px;
+  width: 40%;
+  background-color: #010c3f;
+}
+
+.searchResults h2{
+  padding-left: 0.77rem;
+  padding-top: 0;
+  margin-top: 0.77rem;
+}
+
+.playlist{
+  background-color: #010c3f;
+  border: 2px solid black;
+  height: 800px;
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.h2{
+  font-size: 1.55rem;
+}
+
+.playlist input{
+  border: none;
+  color: white;
+  font-size: 1.55rem;
+  border-bottom: 3px solid darkslategray;
+  width: 80%;
+  height: 5rem;
+  background-color: rgba(1, 1, 1, 0);
+  margin-bottom: 3rem;
+}
+
+#spotify-btn{
+  cursor: pointer;
+  width: 10rem;
+  border-radius: 54px;
+  border-width: 0;
+  padding: 0.77rem 0;
+  background-color: #6c41ec;
+  color: white;
+  text-align: center;
+  font-size: .83rem;
+  transition: background-color .25s;
+  font-weight: bold;
+}
+
+#spotify-btn:hover{
+  background-color: #351a86;
+}
+
+.tracklist ul{
+  padding: 0 0.7rem;
+}
+
+.tracklist li{
+  border-bottom: 2px solid white;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tracklist p{
+  color: darkgray;
+
+}
+
+.add-btn{
+  color: white;
+  background-color:rgba(1, 1, 1, 0);
+  border: none;
+  font-size: 1.5rem;
+  font-weight: bold;
+  transition: color .25s;
+  padding: 0;
+}
+
+.add-btn:hover{
+  color: darkslategray;
+  cursor: pointer;
+}
