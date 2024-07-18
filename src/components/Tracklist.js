@@ -9,3 +9,5 @@ function Tracklist(){
               </ul>
     );
 }
+
+export default Tracklist;
