@@ -1,0 +1,31 @@
+.tracklist ul{
+    padding: 0 0.7rem;
+  }
+  
+  .tracklist li{
+    border-bottom: 2px solid white;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .tracklist p{
+    color: darkgray;
+  
+  }
+  
+  .add-btn{
+    color: white;
+    background-color:rgba(1, 1, 1, 0);
+    border: none;
+    font-size: 1.5rem;
+    font-weight: bold;
+    transition: color .25s;
+    padding: 0;
+  }
+  
+  .add-btn:hover{
+    color: darkslategray;
+    cursor: pointer;
+  }
