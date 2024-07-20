@@ -33,6 +33,12 @@ const[results, setResults] = useState([
   }
 ]);
 
+  function addSong(newSong){
+    setPlaylistSongs((prev) => {
+      return [newSong, ...prev];
+    })
+  }
+
   return (
     <>
       <h1 className="header">Ja<span className="highlight">mm</span>ing</h1>
@@ -42,7 +48,7 @@ const[results, setResults] = useState([
         </div>
         <div className="flexContainer">
           <div className="searchResults"> 
-            <SearchResults results={results} />
+            <SearchResults results={results} addSong={addSong} />
           </div>
           <div className="playlist">
             <Playlist songs={playlistSongs} />

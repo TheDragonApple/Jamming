@@ -11,8 +11,9 @@ function Tracklist(props){
           {props.songs.map(track => {
             return (
               <li className="Track">
+                {console.log(track)}
                 <Track id={track.id} artist={track.artist} songName={track.name} album={track.album}/>
-                <button className="add-btn">{props.btn}</button>
+                <button className="add-btn" onClick={ () => {props.addSong(track)}}>{props.btn}</button>
               </li>
             )
           })}
