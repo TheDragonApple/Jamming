@@ -2,16 +2,7 @@ import React, {useState} from "react";
 import styles from "./Playlist.css";
 import Tracklist from "./Tracklist";
 
-function Playlist(){
-
-    const[songs, setSongs] = useState([
-        {
-            id: 1,
-            name: "song name",
-            artist: "artist",
-            album: "album"
-        }
-    ]);
+function Playlist(props){
 
     const[userInput, setUserInput] = useState("");
 
@@ -24,7 +15,7 @@ function Playlist(){
     return (
         <>
             <input onChange={handleChange} type="text" placeholder="New Playlist" value={userInput}></input>
-                <Tracklist songs={songs} btn={"-"} />
+                <Tracklist songs={props.songs} btn={"-"} />
             <button id="spotify-btn">SAVE TO SPOTIFY</button>
         </>
     );

@@ -3,8 +3,35 @@ import './App.css';
 import SearchResults from './components/SearchResults';
 import SearchBar from './components/SearchBar';
 import Playlist from './components/Playlist';
+import React, {useState} from "react";
+
+
 
 function App() {
+
+  const[playlistSongs, setPlaylistSongs] = useState([
+    {
+        id: 1,
+        name: "song name",
+        artist: "artist",
+        album: "album"
+    }
+  ]);
+
+const[results, setResults] = useState([
+  {
+      id: 238,
+      name: 'Espresso',
+      artist: 'Sabrina Carpenter',
+      album: 'Some Album'
+  },
+  {
+      id: 239,
+      name: 'Another Song',
+      artist: 'Another artist',
+      album: 'Another album'
+  }
+]);
 
   return (
     <>
@@ -15,10 +42,10 @@ function App() {
         </div>
         <div className="flexContainer">
           <div className="searchResults"> 
-            <SearchResults />
+            <SearchResults results={results} />
           </div>
           <div className="playlist">
-            <Playlist />
+            <Playlist songs={playlistSongs} />
           </div>
         </div>
       </div>
