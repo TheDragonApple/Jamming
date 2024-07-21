@@ -15,7 +15,7 @@ function Playlist(props){
     return (
         <>
             <input onChange={handleChange} type="text" placeholder="New Playlist" value={userInput}></input>
-                <Tracklist songs={props.songs} btn={"-"} />
+                <Tracklist songs={props.songs} btn={"-"} removeSong={props.removeSong} />
             <button id="spotify-btn">SAVE TO SPOTIFY</button>
         </>
     );

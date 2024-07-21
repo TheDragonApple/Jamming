@@ -13,7 +13,7 @@ function Tracklist(props){
               <li className="Track">
                 {console.log(track)}
                 <Track id={track.id} artist={track.artist} songName={track.name} album={track.album}/>
-                <button className="add-btn" onClick={ () => {props.addSong(track)}}>{props.btn}</button>
+                <button className="add-btn" onClick={props.btn === "+" ? () => {props.addSong(track)} : () => {props.removeSong(track)}}>{props.btn}</button>
               </li>
             )
           })}

@@ -39,6 +39,17 @@ const[results, setResults] = useState([
     })
   }
 
+  function removeSong(oldSong){
+    setPlaylistSongs((prev) => {
+      const oldSongIndex = prev.findIndex((currValue) => {
+        return oldSong === currValue;
+      });
+      return prev.filter((value, index) => {
+        return index !== oldSongIndex;
+      })
+    })
+  }
+
   return (
     <>
       <h1 className="header">Ja<span className="highlight">mm</span>ing</h1>
@@ -51,7 +62,7 @@ const[results, setResults] = useState([
             <SearchResults results={results} addSong={addSong} />
           </div>
           <div className="playlist">
-            <Playlist songs={playlistSongs} />
+            <Playlist songs={playlistSongs} removeSong={removeSong} />
           </div>
         </div>
       </div>
