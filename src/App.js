@@ -9,6 +9,8 @@ import React, {useState} from "react";
 
 function App() {
 
+  //Code for Spotify authorization
+
   const[playlistSongs, setPlaylistSongs] = useState([
     {
         id: 1,
