@@ -2,18 +2,22 @@ import React, {useState} from "react";
 import styles from "./SearchBar.css";
 
 
-function SearchBar(){
-    const[userInput, setUserInput] = useState('');
+function SearchBar(props){
+    const[term, setTerm] = useState('');
 
     function handleChange(e){
         e.preventDefault();
-        setUserInput(e.target.value);
+        setTerm(e.target.value);
     };
+
+    function passTerm(){
+        return props.onSearch(term);
+    }
 
     return(
         <>
-            <input onChange={handleChange} type="text" placeholder="Enter A Song Title" value={userInput}></input>
-            <button id="srch-btn" type="submit">SEARCH</button>
+            <input onChange={handleChange} type="text" placeholder="Enter A Song Title" value={term}></input>
+            <button id="srch-btn" type="submit" onClick={passTerm}>SEARCH</button>
         </>
     )
 };

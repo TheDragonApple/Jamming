@@ -9,8 +9,6 @@ import React, {useState} from "react";
 
 function App() {
 
-  //Code for Spotify authorization
-
   const[playlistSongs, setPlaylistSongs] = useState([
     {
         id: 1,
@@ -52,12 +50,16 @@ const[results, setResults] = useState([
     })
   }
 
+  function search(term){
+    console.log(term);
+  };
+
   return (
     <>
       <h1 className="header">Ja<span className="highlight">mm</span>ing</h1>
       <div className="app">
         <div className="searchbar">
-          <SearchBar />
+          <SearchBar onSearch={search} />
         </div>
         <div className="flexContainer">
           <div className="searchResults"> 

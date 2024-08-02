@@ -26,6 +26,23 @@ function Spotify(){
         window.location = redirect;
     };
 
+    async function search(term){
+        try {
+            const response = await fetch(`https://api.spotify.com/v1/search?type=track&q=${term}`);
+            if(response.ok){
+                const jsonResponse = await response.json();
+                return jsonResponse.tracks.items.map(track => ({
+                    id: track.id,
+                    name: track.name,
+                    artist: track.artist[0],
+                    album: track.album.name,
+                    uri: track.uri
+                }))
+            }
+        } catch(error){
+            console.log(error);
+        }
+    }
 };
 
-export default Spotify;
+export {Spotify};
