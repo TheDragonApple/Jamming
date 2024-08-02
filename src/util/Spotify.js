@@ -3,9 +3,8 @@ var userToken = "";
 var clientId = "30a6d062276e433888510c86f5bc0866";
 const redirectUrl = "http://localhost:3000/";
 
-function Spotify(){
 
-    function getAccessToken(){
+function getAccessToken(){
         if(userToken){
             return userToken;
         }
@@ -26,23 +25,33 @@ function Spotify(){
         window.location = redirect;
     };
 
-    async function search(term){
+async function search(term){
+        getAccessToken();
+        const header = {Authorization: `Bearer ${userToken}`};
         try {
-            const response = await fetch(`https://api.spotify.com/v1/search?type=track&q=${term}`);
+            const response = await fetch(`https://api.spotify.com/v1/search?q=${encodeURIComponent(term)}&type=track`, {
+                headers: header
+            });
             if(response.ok){
                 const jsonResponse = await response.json();
                 return jsonResponse.tracks.items.map(track => ({
                     id: track.id,
                     name: track.name,
-                    artist: track.artist[0],
+                    artist: track.artists[0].name,
                     album: track.album.name,
-                    uri: track.uri
                 }))
+            }
+            if(!response.ok){
+                const errorData = await response.json();
+                console.error("Error from API: ", errorData);
+                throw new Error(`Spotify API Error: ${errorData.error.message}`);
+            }
+            else{
+                return console.log("error getting data");
             }
         } catch(error){
             console.log(error);
         }
-    }
-};
+    };
 
-export {Spotify};
+export {search, getAccessToken};

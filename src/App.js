@@ -4,7 +4,7 @@ import SearchResults from './components/SearchResults';
 import SearchBar from './components/SearchBar';
 import Playlist from './components/Playlist';
 import React, {useState} from "react";
-
+import { search, getAccessToken } from './util/Spotify';
 
 
 function App() {
@@ -50,8 +50,8 @@ const[results, setResults] = useState([
     })
   }
 
-  function search(term){
-    console.log(term);
+   function handleSearch(term){
+    setResults(search(term));
   };
 
   return (
@@ -59,7 +59,7 @@ const[results, setResults] = useState([
       <h1 className="header">Ja<span className="highlight">mm</span>ing</h1>
       <div className="app">
         <div className="searchbar">
-          <SearchBar onSearch={search} />
+          <SearchBar onSearch={handleSearch} />
         </div>
         <div className="flexContainer">
           <div className="searchResults"> 
