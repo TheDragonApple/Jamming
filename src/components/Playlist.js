@@ -4,19 +4,19 @@ import Tracklist from "./Tracklist";
 
 function Playlist(props){
 
-    const[userInput, setUserInput] = useState("");
+    const[playListName, setPlayListName] = useState("");
 
     function handleChange(e){
         e.preventDefault();
-        setUserInput(e.target.value);
+        setPlayListName(e.target.value);
     };
 
 
     return (
         <>
-            <input onChange={handleChange} type="text" placeholder="New Playlist" value={userInput}></input>
+            <input onChange={handleChange} type="text" placeholder="New Playlist" value={playListName}></input>
                 <Tracklist songs={props.songs} btn={"-"} removeSong={props.removeSong} />
-            <button id="spotify-btn">SAVE TO SPOTIFY</button>
+            <button id="spotify-btn" onClick={props.onSave}>SAVE TO SPOTIFY</button>
         </>
     );
 };

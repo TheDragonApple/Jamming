@@ -4,7 +4,7 @@ import SearchResults from './components/SearchResults';
 import SearchBar from './components/SearchBar';
 import Playlist from './components/Playlist';
 import React, {useState} from "react";
-import { search, getAccessToken } from './util/Spotify';
+import { search, getAccessToken, savePlaylist } from './util/Spotify';
 
 
 function App() {
@@ -19,18 +19,7 @@ function App() {
   ]);
 
 const[results, setResults] = useState([
-  {
-      id: 238,
-      name: 'Espresso',
-      artist: 'Sabrina Carpenter',
-      album: 'Some Album'
-  },
-  {
-      id: 239,
-      name: 'Another Song',
-      artist: 'Another artist',
-      album: 'Another album'
-  }
+
 ]);
 
   function addSong(newSong){
@@ -51,6 +40,7 @@ const[results, setResults] = useState([
   }
 
    function handleSearch(term){
+    getAccessToken();
     var resultArray;
     search(term).then((resolve) => {
       resultArray = resolve;
@@ -65,6 +55,14 @@ const[results, setResults] = useState([
     })
   };
 
+  function handlePlaylistSave(){
+    var uriArray = [];
+    for(let index in playlistSongs){
+      uriArray.push(playlistSongs[index].uri);
+    }
+    savePlaylist(uriArray, "test");
+  }
+
   return (
     <>
       <h1 className="header">Ja<span className="highlight">mm</span>ing</h1>
@@ -77,7 +75,7 @@ const[results, setResults] = useState([
             <SearchResults results={results} addSong={addSong} />
           </div>
           <div className="playlist">
-            <Playlist songs={playlistSongs} removeSong={removeSong} />
+            <Playlist onSave={handlePlaylistSave} songs={playlistSongs} removeSong={removeSong} />
           </div>
         </div>
       </div>
