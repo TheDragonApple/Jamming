@@ -51,7 +51,18 @@ const[results, setResults] = useState([
   }
 
    function handleSearch(term){
-    setResults(search(term));
+    var resultArray;
+    search(term).then((resolve) => {
+      resultArray = resolve;
+      for (let index in resultArray){
+        setResults((prev) => {
+          console.log();
+          return [resultArray[index], ...prev];
+        })
+      }
+    }).catch((error) => {
+      return console.log(error);
+    })
   };
 
   return (
