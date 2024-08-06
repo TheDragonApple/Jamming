@@ -1,7 +1,7 @@
 
 var userToken = "";
 var clientId = "30a6d062276e433888510c86f5bc0866";
-const redirectUrl = "http://localhost:3000/";
+const redirectUrl = "https://Jamming.surge.sh";
 var newUrl;
 
 
