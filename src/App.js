@@ -9,6 +9,7 @@ import { search, getAccessToken, savePlaylist } from './util/Spotify';
 
 function App() {
 
+
   const[playlistSongs, setPlaylistSongs] = useState([
     {
         id: 1,
@@ -39,8 +40,8 @@ const[results, setResults] = useState([
     })
   }
 
+
    function handleSearch(term){
-    getAccessToken();
     var resultArray;
     search(term).then((resolve) => {
       resultArray = resolve;
@@ -67,6 +68,9 @@ const[results, setResults] = useState([
     <>
       <h1 className="header">Ja<span className="highlight">mm</span>ing</h1>
       <div className="app">
+        <div className="login-container">
+          <button id="login" onClick={getAccessToken}>LOGIN TO SPOTIFY</button>
+        </div>
         <div className="searchbar">
           <SearchBar onSearch={handleSearch} />
         </div>
