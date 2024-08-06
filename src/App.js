@@ -4,7 +4,7 @@ import SearchResults from './components/SearchResults';
 import SearchBar from './components/SearchBar';
 import Playlist from './components/Playlist';
 import React, {useState} from "react";
-import { search, getAccessToken, savePlaylist } from './util/Spotify';
+import { search, getAccessToken, savePlaylist, getTokenFromUrl } from './util/Spotify';
 
 
 function App() {
@@ -42,6 +42,7 @@ const[results, setResults] = useState([
 
 
    function handleSearch(term){
+    getTokenFromUrl();
     var resultArray;
     search(term).then((resolve) => {
       resultArray = resolve;

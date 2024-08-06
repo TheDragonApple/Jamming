@@ -5,6 +5,19 @@ const redirectUrl = "http://localhost:3000/";
 var newUrl;
 
 
+function getTokenFromUrl(){
+    const hash = window.location.hash.substring(1);
+    const params = new URLSearchParams(hash);
+    const token = params.get('access_token');
+
+    if (token) {
+        userToken = token;
+        console.log(userToken);
+    } else {
+        console.log('No access token found.');
+    }
+ }
+
  async function getAccessToken(){
     var url= 'https://accounts.spotify.com/authorize';
     url += '?response_type=token';
@@ -14,17 +27,6 @@ var newUrl;
     window.location.href = url;
  }
 
- function getTokenFromUrl(){
-    const hash = window.location.hash.substring(1);
-    const params = new URLSearchParams(hash);
-    const token = params.get('access_token');
-
-    if (token) {
-        userToken = token;
-    } else {
-        console.log('No access token found.');
-    }
- }
 
 
 
@@ -108,4 +110,4 @@ async function savePlaylist(uriArray, name){
     }
 };
 
-export {search, getAccessToken, savePlaylist};
+export {search, getAccessToken, savePlaylist, getTokenFromUrl};
