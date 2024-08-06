@@ -11,17 +11,19 @@ function App() {
 
 
   const[playlistSongs, setPlaylistSongs] = useState([
-    {
-        id: 1,
-        name: "song name",
-        artist: "artist",
-        album: "album"
-    }
+
   ]);
 
 const[results, setResults] = useState([
 
 ]);
+
+const[playListName, setPlayListName] = useState("");
+
+function handleChange(e){
+  e.preventDefault();
+  setPlayListName(e.target.value);
+};
 
   function addSong(newSong){
     setPlaylistSongs((prev) => {
@@ -62,7 +64,9 @@ const[results, setResults] = useState([
     for(let index in playlistSongs){
       uriArray.push(playlistSongs[index].uri);
     }
-    savePlaylist(uriArray, "test");
+    savePlaylist(uriArray, playListName);
+    setPlaylistSongs([]);
+    setPlayListName("");
   }
 
   return (
@@ -80,7 +84,7 @@ const[results, setResults] = useState([
             <SearchResults results={results} addSong={addSong} />
           </div>
           <div className="playlist">
-            <Playlist onSave={handlePlaylistSave} songs={playlistSongs} removeSong={removeSong} />
+            <Playlist onRename={handleChange} name={playListName} onSave={handlePlaylistSave} songs={playlistSongs} removeSong={removeSong} />
           </div>
         </div>
       </div>
