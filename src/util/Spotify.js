@@ -19,9 +19,11 @@ function getTokenFromUrl(){
  }
 
  async function getAccessToken(){
+    var scope = 'playlist-modify-public playlist-modify-private';
     var url= 'https://accounts.spotify.com/authorize';
     url += '?response_type=token';
     url += '&client_id=' + encodeURIComponent(clientId);
+    url += '&scope=' + encodeURIComponent(scope);
     url += '&redirect_uri=' + encodeURIComponent(redirectUrl);
 
     window.location.href = url;
@@ -59,8 +61,8 @@ async function search(term){
         }
     };
 
-async function savePlaylist(uriArray, name){
-    if(!uriArray || !name){
+async function savePlaylist(uriArray, playlistName){
+    if(!uriArray || !playlistName){
         return;
     }
     const header = {Authorization: `Bearer ${userToken}`};
@@ -83,10 +85,14 @@ async function savePlaylist(uriArray, name){
     //Create new playlist
     try{
         const response = await fetch(`https://api.spotify.com/v1/users/${userId}/playlists`, {
-            headers: header,
-            data: {
-                name: name,
-            }
+            headers: {
+                Authorization: `Bearer ${userToken}`,
+                'Content-Type': 'application/json'
+            },
+            method: 'POST',
+            body: JSON.stringify({
+                name: playlistName
+            })
         });
         if(response.ok){
             const jsonResponse = await response.json();
@@ -100,10 +106,14 @@ async function savePlaylist(uriArray, name){
     //Add songs to playlist
     try{
         const response = await fetch(`https://api.spotify.com/v1/playlists/${playlistId}/tracks`, {
-            headers: header,
-            data: {
-                "uris": uriArray
-            }
+            headers: {
+                Authorization: `Bearer ${userToken}`,
+                'Content-Type': 'application/json'
+            },
+            method: 'POST',
+            body: JSON.stringify({
+                uris: uriArray
+            })
         });
     } catch(error){
         console.log(error);
