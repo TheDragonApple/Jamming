@@ -1,7 +1,7 @@
 
 var userToken = "";
 var clientId = "30a6d062276e433888510c86f5bc0866";
-const redirectUrl = "https://Jamming.surge.sh";
+const redirectUrl = "https://thedragonapple.github.io/Jamming/";
 var newUrl;
 
 
