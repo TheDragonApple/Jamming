@@ -1,0 +1,40 @@
+.playlist input{
+    border: none;
+    color: white;
+    font-size: 1.55rem;
+    border-bottom: 3px solid darkslategray;
+    width: 80%;
+    height: 5rem;
+    background-color: rgba(1, 1, 1, 0);
+    margin-bottom: 0.3rem;
+  
+
+  }
+
+  .playlist input::placeholder{
+    color: rgba(255, 255, 255, .8);
+  }
+
+
+  .playlist h3{
+    color: white;
+  }
+  
+  #spotify-btn{
+    margin-top: .5rem;
+    cursor: pointer;
+    width: 10rem;
+    border-radius: 54px;
+    border-width: 0;
+    padding: 0.77rem 0;
+    background-color: #6c41ec;
+    color: white;
+    text-align: center;
+    font-size: .83rem;
+    transition: background-color .25s;
+    font-weight: bold;
+  }
+  
+  #spotify-btn:hover{
+    background-color: #351a86;
+  }
